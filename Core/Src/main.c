@@ -129,11 +129,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    current_led = 2U; /* 练习点：改成 2U，观察从哪颗 LED 开始 */
+    current_led = 1U; /* 练习点：改成 2U，观察从哪颗 LED 开始 */
 
     /* while 循环：条件成立就反复执行 {} 里的代码 */
     while (current_led <= led_count)
-    {
+    { 
+			blink_times = current_led ;
       blink_led(current_led, blink_times, delay_ms);
       current_led++; /* 等价于 current_led = current_led + 1 */
     }
@@ -225,7 +226,7 @@ void blink_led(uint8_t led_num, uint16_t times, uint32_t delay_ms)
   }
 
   /* for 循环：初始化; 判断条件; 每次循环后执行 */
-  for (i = 0U; i < times * 2; i++)
+  for (i = 0U; i < times ; i++)
   {
     led_on(led_num);          /* 点亮指定 LED */
     HAL_Delay(delay_ms);      /* 延时一段时间 */
